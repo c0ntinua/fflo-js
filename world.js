@@ -1,23 +1,14 @@
-function get(col, row) {
-    if (row >= 0 && row < global_rows && col >= 0 && col < global_cols) {
-        return col * global_rows + row;
-    }
-    else {
-        console.log(`invalid access at ${row} , ${col}`);
-        return 0;
-    }
-}
-function seedWorld(layer) {
+function seedLayer(layer) {
     for (let row = 0; row < global_rows; row++) {
         for (let col = 0; col < global_cols; col++) {
-            layer[get(col, row)] = randomFloat();
+            layer[col * global_rows + row] = randomFloat();
         }
     }
 }
 function seedCurrentCells() {
-    seedWorld(red_layer);
-    seedWorld(green_layer);
-    seedWorld(blue_layer);
+    seedLayer(red_layer);
+    seedLayer(green_layer);
+    seedLayer(blue_layer);
 }
 function randomFloat() {
     return 1.0 - 2.0 * Math.random();

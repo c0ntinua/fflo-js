@@ -13,30 +13,42 @@ function newFilter(cols : number, rows : number) : Filter  {
     return f;
 }
 
-function filter_of_cell(filter :  Filter, layer : number[], col : number, row : number) {
-    let sum = 0;
-    let counter = 0;
-    let target_index = 0;
-    let col_span = Math.floor((filter.cols  - 1 ) / 2 );
-    let row_span = Math.floor((filter.rows  - 1 ) / 2 );
-    let first_col = col - col_span;let last_col = col + col_span;
-    let first_row = row - row_span;let last_row = row + row_span;		
-    for (let c = 0; c < filter.cols; c++) {
-        for (let r = 0; r < filter.rows; r++) {
-            target_index = get(col - col_span + c, row - row_span + r);
-            sum += layer[target_index]*filter.cells[get(c,r)];
-            counter += 1;
+function seedFilter(filter : Filter) {
+    for (let row = 0 ; row < filter.rows ; row++) {
+        for (let col = 0 ; col < filter.cols ; col++) {
+            filter.cells[col*filter.rows + row] = randomFloat();
         }
     }
+}
+
+function applyFilterCell(filter :  Filter, layer : number[], col : number, row : number) {
+    let sum = 0;
+    let counter = 0;
+    let this_row = 0;
+    let this_col = 0;
+    let target_index = 0;	
+    for (let c = 0; c < filter.cols; c++) {
+        for (let r = 0; r < filter.rows; r++) {
+            this_row = r +row;
+            if (this_row >= global_rows) this_row -= global_rows;
+            this_col = c +col;
+            if (this_col >= global_cols) this_col -= global_cols;
+            
+            target_index = this_col*global_rows + this_row;
+
+            sum += layer[target_index]*filter.cells[c*filter.rows + r];
+        }
+    }
+    // let sum = randomFloat();
     return Math.tanh(sum);
 }
 
-function apply_filter(filter : Filter, layer : number[]) {
+function applyFilter(filter : Filter, layer : number[]) : number[] {
     let workspace = new Array(global_rows*global_cols).fill(0);
     for (let c = 0; c < global_cols; c++) {
         for (let r = 0; r < global_rows; r++) {
-            workspace[get(c,r)] = filter_of_cell(filter, layer, c,r);
+            workspace[c*global_rows + r ] = applyFilterCell(filter, layer, c, r);
         }
     }
-    layer = workspace;
+    return workspace;
 }

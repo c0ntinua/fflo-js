@@ -8,4 +8,8 @@ let red_layer = new Array(global_rows*global_cols).fill(0);
 let green_layer = new Array(global_rows*global_cols).fill(0);
 let blue_layer = new Array(global_rows*global_cols).fill(0);
 let inc = 2.0/255.0;
+let red_filter = newFilter(3,3);
+let green_filter = newFilter(7,7);
+let blue_filter = newFilter(5,5);
+
 

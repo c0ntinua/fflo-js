@@ -5,9 +5,9 @@ function plotCurrentCells() {
     let b : number = 0;
     for (let col = 0; col < global_cols; col++) {
         for (let row = 0; row < global_rows; row++) {
-            r = float_to_integer(red_layer[get(col,row)]);
-            g = float_to_integer(green_layer[get(col,row)]);
-            b = float_to_integer(blue_layer[get(col,row)]);
+            r = float_to_integer(red_layer[col * global_rows + row]);
+            g = float_to_integer(green_layer[col * global_rows + row]);
+            b = float_to_integer(blue_layer[col * global_rows + row]);
             if (pen) {
                 pen.fillStyle = color_string(r,g,b);
                 pen.beginPath();
