@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+      "module": "commonjs",
+      "noImplicitAny": true,
+      "removeComments": true,
+      "preserveConstEnums": true,
+      "sourceMap": true,
+      "target": "es6"
+    },
+    "files": [
+        "world.ts",
+        "global.ts",
+        "plot.ts",
+        "main.ts",
+        "input.ts",
+        "manager.ts",
+        "filter.ts",
+    ]
+  }
