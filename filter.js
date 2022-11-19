@@ -9,9 +9,26 @@ function newFilter(cols, rows) {
 function seedFilter(filter) {
     for (let row = 0; row < filter.rows; row++) {
         for (let col = 0; col < filter.cols; col++) {
-            filter.cells[col * filter.rows + row] = randomFloat();
+            filter.cells[col * filter.rows + row] = 1.0 - 2.0 * Math.random();
         }
     }
+}
+function randomSeededFilter() {
+    let rows = Math.floor(Math.random() * 10 + 2);
+    let cols = Math.floor(Math.random() * 10 + 2);
+    let filter = newFilter(cols, rows);
+    seedFilter(filter);
+    return filter;
+}
+function newRedFilter() {
+    red_filter = randomSeededFilter();
+    console.log('red filter updated');
+}
+function newGreenFilter() {
+    green_filter = randomSeededFilter();
+}
+function newBlueFilter() {
+    blue_filter = randomSeededFilter();
 }
 function applyFilterCell(filter, layer, col, row) {
     let sum = 0;

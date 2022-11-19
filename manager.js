@@ -3,6 +3,5 @@ function updatePlot() {
     green_layer = applyFilter(green_filter, green_layer);
     blue_layer = applyFilter(blue_filter, blue_layer);
     plotCurrentCells();
-    console.log(red_layer);
 }
 //# sourceMappingURL=manager.js.map
