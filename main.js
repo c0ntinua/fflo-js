@@ -1,6 +1,7 @@
+let interval = setInterval(updatePlot, delay);
 seedCurrentCells();
 seedFilter(red_filter);
 seedFilter(green_filter);
 seedFilter(blue_filter);
-setInterval(updatePlot, 100);
+setChoices();
 //# sourceMappingURL=main.js.map

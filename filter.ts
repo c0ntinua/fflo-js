@@ -22,8 +22,8 @@ function seedFilter(filter : Filter) {
 }
 
 function randomSeededFilter() {
-    let rows = Math.floor(Math.random() * 10 + 2);
-    let cols = Math.floor(Math.random() * 10 + 2);
+    let rows = Math.floor(Math.random() * 17 + 2);
+    let cols = Math.floor(Math.random() * 17 + 2);
     let filter = newFilter(cols,rows);
     seedFilter(filter);
     return filter;

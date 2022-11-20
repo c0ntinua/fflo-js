@@ -5,41 +5,22 @@
     <head>
    
     </head>
-    <canvas id="canvas" width=1000 height=1000 onclick="seedCurrentCells()"></canvas>
+    <canvas id="canvas" width=1000 height=1000 onclick="applyChoices()"></canvas>
     <br>
-    <br>
-    <div onclick="newRedFilter()"> new red   filter</div>
-    <div onclick="newGreenFilter()"> new green filter</div>
-    <div onclick="newBlueFilter()"> new blue  filter</div>
-    <!-- <label for="colors">new red filter &nbsp;&nbsp;&nbsp;&nbsp;</label>
-    <input type="text" id="color_0" name="color_0" value=""#FFFFFF"">
-
-    <label for="colors">color1&nbsp;&nbsp;&nbsp;&nbsp;</label>
-    <input type="text" id="color_1" name="color_1" value=""#FFFFFF"">
-    <br>
-
-   
-    <label for="rows">rows&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-    <input type="text" id="rows" name="rows" onclick="getRows();" >
-  
-   
-    <label for="rows">columns&nbsp;&nbsp;&nbsp;</label>
+    <label for="rows">rows</label>
+    <input type="text" id="rows" name="rows" >
+    <label for="rows">cols</label>
     <input type="text" id="cols" name="cols">
-    <br>
-    
-    <label for="delay">delay&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+    <label for="delay">wait</label>
     <input type="text" id="delay" name="delay">
-
-
-    
-
-    <label for="delay">updates&nbsp;&nbsp;&nbsp;</label>
-    <input type="text" id="updates" name="updates">
     <br>
-    <label for="row_rule">rule0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-    <input type="text" id="row_rule" name="row_rule" value="1001101000011110">
-    <label for="col_rule">rule1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-    <input type="text" id="col_rule" name="row_rule" value="010010100111010101"> -->
+    <button onclick="newRedFilter()"> new red   filter</button>
+    <button onclick="newGreenFilter()"> new green filter</button>
+    <button onclick="newBlueFilter()"> new blue  filter</button>
+    <button onclick="seedCurrentCells()"> seed cells</button>
+    <button onclick="resetFilters()"> reset filters</button>
+    <button onclick="toggleHeavyMode()"> toggle heavy mode </button>
+    <button onclick="toggleMonochrome()"> toggle monchrome mode</button>
     <script src="filter.js"></script>
     <script src="global.js"></script>
     <script src="manager.js"></script>
