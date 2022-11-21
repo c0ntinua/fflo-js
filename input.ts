@@ -90,8 +90,11 @@ function resetFilters() {
     red_filter = randomSeededFilter();
     green_filter = randomSeededFilter();
     blue_filter = randomSeededFilter();
-    red_filter = randomSeededFilter();
-    green_filter = randomSeededFilter();
-    blue_filter = randomSeededFilter();
+    red_filter_heavy = randomSeededFilter();
+    green_filter_heavy = randomSeededFilter();
+    blue_filter_heavy = randomSeededFilter();
+    red_filter_alt = randomSeededFilter();
+    green_filter_alt = randomSeededFilter();
+    blue_filter_alt = randomSeededFilter();
 
 }

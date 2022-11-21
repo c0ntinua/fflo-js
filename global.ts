@@ -17,10 +17,14 @@ let blue_filter = randomSeededFilter();
 let red_filter_heavy = randomSeededFilter();
 let green_filter_heavy = randomSeededFilter();
 let blue_filter_heavy = randomSeededFilter();
+let red_filter_alt = randomSeededFilter();
+let green_filter_alt = randomSeededFilter();
+let blue_filter_alt = randomSeededFilter();
 let delay = 100;
 let heavy_mode = true;
 let monochrome = true;
 let posterized = true;
+let alt_mode = false;
 
 
 
