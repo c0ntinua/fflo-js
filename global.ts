@@ -20,6 +20,7 @@ let blue_filter_heavy = randomSeededFilter();
 let delay = 100;
 let heavy_mode = true;
 let monochrome = true;
+let posterized = true;
 
 
 

@@ -2,13 +2,15 @@ type Filter = {
     cells : number[],
     cols : number,
     rows : number,
+    transfer_code : number,
 }
 
-function newFilter(cols : number, rows : number) : Filter  {
+function newFilter(cols : number, rows : number, transfer_code : number) : Filter  {
     let f : Filter = {
         cells : new Array(cols*rows).fill(0),
         cols : cols,
         rows : rows,
+        transfer_code : transfer_code,
     }
     return f;
 }
@@ -22,16 +24,16 @@ function seedFilter(filter : Filter) {
 }
 
 function randomSeededFilter() {
-    let rows = Math.floor(Math.random() * 17 + 2);
-    let cols = Math.floor(Math.random() * 17 + 2);
-    let filter = newFilter(cols,rows);
+    let rows = Math.floor(Math.random() * 11 + 2);
+    let cols = Math.floor(Math.random() * 11 + 2);
+    let transfer_code = Math.floor(Math.random() * 2);
+    let filter = newFilter(cols,rows, transfer_code);
     seedFilter(filter);
     return filter;
 }
 
 function newRedFilter() {
     red_filter = randomSeededFilter();
-    console.log('red filter updated');
 }
 function newGreenFilter() {
     green_filter = randomSeededFilter();
@@ -60,6 +62,12 @@ function applyFilterCell(filter :  Filter, layer : number[], col : number, row :
     }
     // let sum = randomFloat();
     return Math.tanh(sum);
+
+    // switch (filter.transfer_code) {
+    //     case 0 : return Math.tanh(sum);
+    //     case 1 : return  Math.sin(Math.PI * sum);
+
+    // }
 }
 
 function applyFilter(filter : Filter, layer : number[]) : number[] {

@@ -1,8 +1,9 @@
-function newFilter(cols, rows) {
+function newFilter(cols, rows, transfer_code) {
     let f = {
         cells: new Array(cols * rows).fill(0),
         cols: cols,
         rows: rows,
+        transfer_code: transfer_code,
     };
     return f;
 }
@@ -14,15 +15,15 @@ function seedFilter(filter) {
     }
 }
 function randomSeededFilter() {
-    let rows = Math.floor(Math.random() * 17 + 2);
-    let cols = Math.floor(Math.random() * 17 + 2);
-    let filter = newFilter(cols, rows);
+    let rows = Math.floor(Math.random() * 11 + 2);
+    let cols = Math.floor(Math.random() * 11 + 2);
+    let transfer_code = Math.floor(Math.random() * 2);
+    let filter = newFilter(cols, rows, transfer_code);
     seedFilter(filter);
     return filter;
 }
 function newRedFilter() {
     red_filter = randomSeededFilter();
-    console.log('red filter updated');
 }
 function newGreenFilter() {
     green_filter = randomSeededFilter();

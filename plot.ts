@@ -11,10 +11,25 @@ function plotCurrentCells() {
             b = float_to_integer(blue_layer[col * global_rows + row]);
             if (pen) {
                 if (!monochrome) {
-                    pen.fillStyle = color_string(r,g,b);
+                    if (!posterized) {
+                        pen.fillStyle = color_string(r,g,b);
+
+                    } else {
+                        if (r > 127) r = 255; else r = 0;
+                        if (g > 127) g = 255; else g = 0;
+                        if (b > 127) b = 255; else b = 0;
+                        pen.fillStyle = color_string(r,g,b);
+                    }
+                    
                 } else {
-                    m = Math.floor((r + g + b)/2);
-                    pen.fillStyle = color_string(m,m,m);
+                    if (!posterized) {
+                        m = Math.floor((r + g + b)/2);
+                        pen.fillStyle = color_string(m,m,m);
+                    } else {
+                        m = Math.floor((r + g + b)/2);
+                        if (m > 127) m = 255; else m = 0;
+                        pen.fillStyle = color_string(m,m,m);
+                    }
                 }
                 pen.beginPath();
                 pen.rect(col*pixel_width, row*pixel_height, pixel_width, pixel_height);
