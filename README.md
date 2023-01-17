@@ -1,5 +1,6 @@
 # fflo-js
 
-This program allows users to experiment with a continuous cellular automaton in the browser. It's a Typescript version of a program originally written in Rust. It's hosted for examination as a static website at http://ffl0.s3-website.us-east-2.amazonaws.com/
+This program allows users to experiment with a continuous cellular automaton in the browser. http://sc0tzwEi.github.io/fflo-js
 
-http://sc0tzwEi.github.io/fflo-js
+This is one of the earlier versions. For more serious exploration, the Rust version will probably be better (you can save and load configurations, and Rust is faster, allowing for more filters, etc.).
+
